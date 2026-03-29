@@ -55,12 +55,15 @@ call WriteString
 call DrawBorder
 
 drawPlayer :
-; draw key
+; draw key only if not collected
+cmp hasKey, 1
+je skipKeyDraw
 mov dh, keyY
 mov dl, keyX
 call Gotoxy
 mov edx, OFFSET keyChar
 call WriteString
+skipKeyDraw :
 
 ; draw door
 mov dh, doorY
