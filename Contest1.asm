@@ -61,6 +61,13 @@ call Gotoxy
 mov edx, OFFSET keyChar
 call WriteString
 
+; draw door
+mov dh, doorY
+mov dl, doorX
+call Gotoxy
+mov edx, OFFSET doorChar
+call WriteString
+
 ; draw player
 mov dh, playerY
 mov dl, playerX
