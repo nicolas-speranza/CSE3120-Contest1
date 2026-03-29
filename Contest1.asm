@@ -23,6 +23,10 @@ rightBound  BYTE 69
 topBound    BYTE 4
 botBound    BYTE 19
 
+msgFindKey  BYTE "Find the key, but watch out...", 0
+msgGetDoor  BYTE "Get to the door!", 0
+hasKey      BYTE 0
+
 .code
 main PROC
 call Clrscr
