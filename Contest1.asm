@@ -5,7 +5,8 @@ titleMsg    BYTE "ESCAPE THE SEGFAULT", 0
 startMsg    BYTE "Press any key to begin...", 0
 helpMsg     BYTE "Use W A S D to move. Press Q to quit.", 0
 player      BYTE "@", 0
-blank       BYTE "                                ", 0
+blank       BYTE " ", 0
+msgBlank    BYTE "                                ", 0
 keyChar     BYTE "K", 0
 
 playerX     BYTE 10
@@ -222,7 +223,7 @@ UpdateMessage PROC
 mov dh, 1
 mov dl, 0
 call Gotoxy
-mov edx, OFFSET blank
+mov edx, OFFSET msgBlank
 call WriteString
 mov dh, 1
 mov dl, 0
