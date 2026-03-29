@@ -138,6 +138,14 @@ je drawPlayer
 inc playerY
 jmp drawPlayer
 
+winGame :
+call Clrscr
+mov edx, OFFSET winMsg
+call WriteString
+call Crlf
+call WaitMsg
+exit
+
 quitGame :
 exit
 main ENDP
