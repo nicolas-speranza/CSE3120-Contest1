@@ -138,6 +138,17 @@ je drawPlayer
 inc playerY
 jmp drawPlayer
 
+checkDoor :
+cmp hasKey, 1
+jne drawPlayer
+mov al, playerX
+cmp al, doorX
+jne drawPlayer
+mov al, playerY
+cmp al, doorY
+jne drawPlayer
+jmp winGame
+
 winGame :
 call Clrscr
 mov edx, OFFSET winMsg
