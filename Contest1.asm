@@ -27,6 +27,10 @@ msgFindKey  BYTE "Find the key, but watch out...", 0
 msgGetDoor  BYTE "Get to the door!", 0
 hasKey      BYTE 0
 
+doorChar    BYTE "D", 0
+doorX       BYTE 65
+doorY       BYTE 18
+
 .code
 main PROC
 call Clrscr
