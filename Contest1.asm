@@ -138,6 +138,19 @@ je drawPlayer
 inc playerY
 jmp drawPlayer
 
+checkGoal :
+cmp hasKey, 1
+je checkDoor
+mov al, playerX
+cmp al, keyX
+jne checkDoor
+mov al, playerY
+cmp al, keyY
+jne checkDoor
+mov hasKey, 1
+call UpdateMessage
+jmp drawPlayer
+
 checkDoor :
 cmp hasKey, 1
 jne drawPlayer
