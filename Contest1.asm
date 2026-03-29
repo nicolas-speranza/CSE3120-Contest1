@@ -47,6 +47,9 @@ call ReadChar
 call Clrscr
 mov edx, OFFSET helpMsg
 call WriteString
+call Crlf
+mov edx, OFFSET msgFindKey
+call WriteString
 
 call DrawBorder
 
