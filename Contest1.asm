@@ -186,4 +186,18 @@ jbe rightLine
 ret
 DrawBorder ENDP
 
+UpdateMessage PROC
+mov dh, 1
+mov dl, 0
+call Gotoxy
+mov edx, OFFSET blank
+call WriteString
+mov dh, 1
+mov dl, 0
+call Gotoxy
+mov edx, OFFSET msgGetDoor
+call WriteString
+ret
+UpdateMessage ENDP
+
 END main
