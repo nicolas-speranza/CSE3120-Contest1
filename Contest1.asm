@@ -6,9 +6,12 @@ startMsg    BYTE "Press any key to begin...", 0
 helpMsg     BYTE "Use W A S D to move. Press Q to quit.", 0
 player      BYTE "@", 0
 blank       BYTE " ", 0
+keyChar     BYTE "K", 0
 
 playerX     BYTE 10
 playerY     BYTE 5
+keyX        BYTE 30
+keyY        BYTE 10
 
 leftWall    BYTE 5
 rightWall   BYTE 70
@@ -40,6 +43,14 @@ call WriteString
 call DrawBorder
 
 drawPlayer :
+; draw key
+mov dh, keyY
+mov dl, keyX
+call Gotoxy
+mov edx, OFFSET keyChar
+call WriteString
+
+; draw player
 mov dh, playerY
 mov dl, playerX
 call Gotoxy
