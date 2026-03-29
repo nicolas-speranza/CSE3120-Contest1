@@ -5,7 +5,7 @@ titleMsg    BYTE "ESCAPE THE SEGFAULT", 0
 startMsg    BYTE "Press any key to begin...", 0
 helpMsg     BYTE "Use W A S D to move. Press Q to quit.", 0
 player      BYTE "@", 0
-blank       BYTE " ", 0
+blank       BYTE "                                ", 0
 keyChar     BYTE "K", 0
 
 playerX     BYTE 10
@@ -25,6 +25,7 @@ botBound    BYTE 19
 
 msgFindKey  BYTE "Find the key, but watch out...", 0
 msgGetDoor  BYTE "Get to the door!", 0
+winMsg      BYTE "You escaped!", 0
 hasKey      BYTE 0
 
 doorChar    BYTE "D", 0
