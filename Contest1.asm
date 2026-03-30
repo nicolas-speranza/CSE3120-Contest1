@@ -204,6 +204,14 @@ call Crlf
 call WaitMsg
 exit
 
+loseGame :
+call Clrscr
+mov edx, OFFSET loseMsg
+call WriteString
+call Crlf
+call WaitMsg
+exit
+
 quitGame :
 exit
 main ENDP
