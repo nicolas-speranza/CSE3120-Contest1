@@ -149,28 +149,37 @@ mov al, playerX
 cmp al, leftBound
 je drawPlayer
 dec playerX
-jmp checkGoal
+jmp checkMonster
 
 moveRight :
 mov al, playerX
 cmp al, rightBound
 je drawPlayer
 inc playerX
-jmp checkGoal
+jmp checkMonster
 
 moveUp :
 mov al, playerY
 cmp al, topBound
 je drawPlayer
 dec playerY
-jmp checkGoal
+jmp checkMonster
 
 moveDown :
 mov al, playerY
 cmp al, botBound
 je drawPlayer
 inc playerY
-jmp checkGoal
+jmp checkMonster
+
+checkMonster :
+mov al, playerX
+cmp al, monster1X
+jne checkGoal
+mov al, playerY
+cmp al, monster1Y
+jne checkGoal
+jmp loseGame
 
 checkGoal :
 cmp hasKey, 1
