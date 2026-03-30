@@ -27,11 +27,23 @@ botBound    BYTE 19
 msgFindKey  BYTE "Find the key, but watch out...", 0
 msgGetDoor  BYTE "Get to the door!", 0
 winMsg      BYTE "You escaped!", 0
+loseMsg     BYTE "You Died", 0
 hasKey      BYTE 0
 
 doorChar    BYTE "D", 0
 doorX       BYTE 65
 doorY       BYTE 18
+
+monsterChar BYTE "M", 0
+
+monster1X   BYTE 40
+monster1Y   BYTE 12
+
+monster2X   BYTE 20
+monster2Y   BYTE 8
+
+monster3X   BYTE 55
+monster3Y   BYTE 16
 
 .code
 main PROC
