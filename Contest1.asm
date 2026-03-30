@@ -183,10 +183,20 @@ je loseGame
 checkM2 :
 mov al, playerX
 cmp al, monster2X
-jne checkGoal
+jne checkM3
 mov al, playerY
 cmp al, monster2Y
 je loseGame
+
+checkM3 :
+mov al, playerX
+cmp al, monster3X
+jne checkGoal
+mov al, playerY
+cmp al, monster3Y
+je loseGame
+
+jmp checkGoal
 
 checkGoal :
 cmp hasKey, 1
