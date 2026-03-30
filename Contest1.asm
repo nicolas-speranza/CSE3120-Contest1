@@ -92,6 +92,27 @@ call Gotoxy
 mov edx, OFFSET player
 call WriteString
 
+; draw monster 1
+mov dh, monster1Y
+mov dl, monster1X
+call Gotoxy
+mov edx, OFFSET monsterChar
+call WriteString
+
+; draw monster 2
+mov dh, monster2Y
+mov dl, monster2X
+call Gotoxy
+mov edx, OFFSET monsterChar
+call WriteString
+
+; draw monster 3
+mov dh, monster3Y
+mov dl, monster3X
+call Gotoxy
+mov edx, OFFSET monsterChar
+call WriteString
+
 gameLoop :
 call ReadKey
 
