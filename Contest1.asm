@@ -175,11 +175,18 @@ jmp checkMonster
 checkMonster :
 mov al, playerX
 cmp al, monster1X
-jne checkGoal
+jne checkM2
 mov al, playerY
 cmp al, monster1Y
+je loseGame
+
+checkM2 :
+mov al, playerX
+cmp al, monster2X
 jne checkGoal
-jmp loseGame
+mov al, playerY
+cmp al, monster2Y
+je loseGame
 
 checkGoal :
 cmp hasKey, 1
