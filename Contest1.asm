@@ -391,16 +391,24 @@ call Clrscr
 mov edx, OFFSET winMsg
 call WriteString
 call Crlf
-call WaitMsg
-exit
+call Crlf
+mov edx, OFFSET restartMsg
+call WriteString
+call Crlf
+call Crlf
+jmp restartChoice
 
 loseGame :
 call Clrscr
 mov edx, OFFSET loseMsg
 call WriteString
 call Crlf
-call WaitMsg
-exit
+call Crlf
+mov edx, OFFSET restartMsg
+call WriteString
+call Crlf
+call Crlf
+jmp restartChoice
 
 quitGame :
 exit
