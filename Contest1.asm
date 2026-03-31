@@ -69,6 +69,7 @@ prevPlayerY  BYTE 5
 .code
 main PROC
 call Clrscr
+call Randomize
 
 mov edx, OFFSET titleMsg
 call WriteString
