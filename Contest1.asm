@@ -302,4 +302,34 @@ call WriteString
 ret
 UpdateMessage ENDP
 
+IsVisible PROC
+; input: AL = objectX, AH = objectY
+; output: BL = 1 if visible, 0 if not
+
+mov bl, 0
+
+; check x distance
+mov dl, playerX
+sub dl, al
+jns xPositive
+neg dl
+xPositive:
+cmp dl, visionRadius
+ja notVisible
+
+; check y distance
+mov dl, playerY
+sub dl, ah
+jns yPositive
+neg dl
+yPositive:
+cmp dl, visionRadius
+ja notVisible
+
+mov bl, 1
+
+notVisible:
+ret
+IsVisible ENDP
+
 END main
