@@ -675,4 +675,41 @@ keyDone :
 ret
 RandomizeKey ENDP
 
+RandomizeDoor PROC
+doorLoop :
+movzx eax, BYTE PTR rightBound
+movzx ebx, BYTE PTR leftBound
+sub eax, ebx
+inc eax
+call RandomRange
+add al, leftBound
+mov doorX, al
+
+movzx eax, BYTE PTR botBound
+movzx ebx, BYTE PTR topBound
+sub eax, ebx
+inc eax
+call RandomRange
+add al, topBound
+mov doorY, al
+
+mov al, doorX
+cmp al, playerX
+jne checkDoorKey
+mov al, doorY
+cmp al, playerY
+je doorLoop
+
+checkDoorKey :
+mov al, doorX
+cmp al, keyX
+jne doorDone
+mov al, doorY
+cmp al, keyY
+je doorLoop
+
+doorDone :
+ret
+RandomizeDoor ENDP
+
 END main
