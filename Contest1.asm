@@ -308,9 +308,25 @@ je loseGame
 checkM3 :
 mov al, playerX
 cmp al, monster3X
-jne checkGoal
+jne checkM4
 mov al, playerY
 cmp al, monster3Y
+je loseGame
+
+checkM4 :
+mov al, playerX
+cmp al, monster4X
+jne checkM5
+mov al, playerY
+cmp al, monster4Y
+je loseGame
+
+checkM5 :
+mov al, playerX
+cmp al, monster5X
+jne checkM6
+mov al, playerY
+cmp al, monster5Y
 je loseGame
 
 jmp checkGoal
