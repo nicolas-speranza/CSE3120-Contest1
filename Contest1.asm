@@ -646,4 +646,33 @@ call WriteString
 ret
 ResetGame ENDP
 
+RandomizeKey PROC
+keyLoop :
+movzx eax, BYTE PTR rightBound
+movzx ebx, BYTE PTR leftBound
+sub eax, ebx
+inc eax
+call RandomRange
+add al, leftBound
+mov keyX, al
+
+movzx eax, BYTE PTR botBound
+movzx ebx, BYTE PTR topBound
+sub eax, ebx
+inc eax
+call RandomRange
+add al, topBound
+mov keyY, al
+
+mov al, keyX
+cmp al, playerX
+jne keyDone
+mov al, keyY
+cmp al, playerY
+je keyLoop
+
+keyDone :
+ret
+RandomizeKey ENDP
+
 END main
