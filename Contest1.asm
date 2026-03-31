@@ -204,6 +204,19 @@ mov edx, OFFSET monsterChar
 call WriteString
 skipMonster6 :
 
+; draw monster 7 if visible
+mov al, monster7X
+mov ah, monster7Y
+call IsVisible
+cmp bl, 1
+jne skipMonster7
+mov dh, monster7Y
+mov dl, monster7X
+call Gotoxy
+mov edx, OFFSET monsterChar
+call WriteString
+skipMonster7 :
+
 gameLoop :
 call ReadKey
 
