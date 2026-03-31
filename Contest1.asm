@@ -46,6 +46,21 @@ monster2Y   BYTE 8
 monster3X   BYTE 55
 monster3Y   BYTE 16
 
+monster4X   BYTE 15
+monster4Y   BYTE 15
+
+monster5X   BYTE 25
+monster5Y   BYTE 6
+
+monster6X   BYTE 35
+monster6Y   BYTE 17
+
+monster7X   BYTE 48
+monster7Y   BYTE 9
+
+monster8X   BYTE 60
+monster8Y   BYTE 14
+
 visionRadius BYTE 2
 
 .code
