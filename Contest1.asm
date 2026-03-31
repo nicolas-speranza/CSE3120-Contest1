@@ -119,13 +119,6 @@ mov edx, OFFSET doorChar
 call WriteString
 skipDoorDraw :
 
-; draw player
-mov dh, playerY
-mov dl, playerX
-call Gotoxy
-mov edx, OFFSET player
-call WriteString
-
 ; draw monster 1 if visible
 mov al, monster1X
 mov ah, monster1Y
@@ -229,6 +222,24 @@ call Gotoxy
 mov edx, OFFSET monsterChar
 call WriteString
 skipMonster8 :
+
+; draw player
+mov dh, playerY
+mov dl, playerX
+call Gotoxy
+mov edx, OFFSET player
+call WriteString
+
+mov al, playerX
+mov prevPlayerX, al
+mov al, playerY
+mov prevPlayerY, al
+
+mov dh, 22
+mov dl, 0
+call Gotoxy
+
+jmp gameLoop
 
 gameLoop :
 call ReadKey
