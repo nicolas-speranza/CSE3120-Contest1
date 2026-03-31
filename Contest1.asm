@@ -45,6 +45,8 @@ monster2Y   BYTE 8
 monster3X   BYTE 55
 monster3Y   BYTE 16
 
+visionRadius BYTE 2
+
 .code
 main PROC
 call Clrscr
