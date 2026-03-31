@@ -599,4 +599,16 @@ jbe clearOldRow
 ret
 ClearOldVision ENDP
 
+restartChoice :
+call ReadChar
+cmp al, 'r'
+je doRestart
+cmp al, 'R'
+je doRestart
+cmp al, 'q'
+je quitGame
+cmp al, 'Q'
+je quitGame
+jmp restartChoice
+
 END main
