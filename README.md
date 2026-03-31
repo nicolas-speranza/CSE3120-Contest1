@@ -92,6 +92,8 @@ Run with: Contest1.exe
 Contest1.exe
 ```
 
+
+Alternatively, you can just download the Contest1.asm file, open it in your Visual Studio (which I'm assuming is set up correctly), build, and then finally run it by clicking on Start Debugging/Start Without Debugging.
 ---
 
 ## Notes
