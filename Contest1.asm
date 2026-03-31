@@ -70,9 +70,14 @@ call WriteString
 call DrawBorder
 
 drawPlayer :
-; draw key only if not collected
+; draw key only if not collected and visible
 cmp hasKey, 1
 je skipKeyDraw
+mov al, keyX
+mov ah, keyY
+call IsVisible
+cmp bl, 1
+jne skipKeyDraw
 mov dh, keyY
 mov dl, keyX
 call Gotoxy
