@@ -88,6 +88,8 @@ mov edx, OFFSET msgFindKey
 call WriteString
 
 call DrawBorder
+call RandomizeKey
+call RandomizeDoor
 
 drawPlayer :
 call ClearOldVision
@@ -627,6 +629,8 @@ mov playerY, 5
 mov prevPlayerX, 10
 mov prevPlayerY, 5
 mov hasKey, 0
+call RandomizeKey
+call RandomizeDoor
 
 mov dh, 1
 mov dl, 0
