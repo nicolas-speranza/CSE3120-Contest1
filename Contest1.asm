@@ -361,4 +361,25 @@ notVisible:
 ret
 IsVisible ENDP
 
+ClearInterior PROC
+mov dh, topBound
+
+clearRow:
+mov dl, leftBound
+
+clearCol:
+call Gotoxy
+mov al, ' '
+call WriteChar
+inc dl
+cmp dl, rightBound
+jbe clearCol
+
+inc dh
+cmp dh, botBound
+jbe clearRow
+
+ret
+ClearInterior ENDP
+
 END main
