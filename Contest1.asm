@@ -345,6 +345,16 @@ mov al, playerY
 cmp al, monster7Y
 je loseGame
 
+checkM8 :
+mov al, playerX
+cmp al, monster8X
+jne checkGoal
+mov al, playerY
+cmp al, monster8Y
+je loseGame
+
+jmp checkGoal
+
 jmp checkGoal
 
 checkGoal :
