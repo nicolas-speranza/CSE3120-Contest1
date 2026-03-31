@@ -28,6 +28,7 @@ msgFindKey  BYTE "Find the key, but watch out...", 0
 msgGetDoor  BYTE "Get to the door!", 0
 winMsg      BYTE "You escaped!", 0
 loseMsg     BYTE "You Died", 0
+restartMsg  BYTE "Press R to restart or Q to quit.", 0
 hasKey      BYTE 0
 
 doorChar    BYTE "D", 0
