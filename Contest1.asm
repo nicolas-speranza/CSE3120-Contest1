@@ -611,4 +611,36 @@ cmp al, 'Q'
 je quitGame
 jmp restartChoice
 
+doRestart :
+call ResetGame
+call Clrscr
+mov edx, OFFSET helpMsg
+call WriteString
+call Crlf
+mov edx, OFFSET msgFindKey
+call WriteString
+call DrawBorder
+jmp drawPlayer
+
+ResetGame PROC
+mov playerX, 10
+mov playerY, 5
+mov prevPlayerX, 10
+mov prevPlayerY, 5
+mov hasKey, 0
+
+mov dh, 1
+mov dl, 0
+call Gotoxy
+mov edx, OFFSET msgBlank
+call WriteString
+mov dh, 1
+mov dl, 0
+call Gotoxy
+mov edx, OFFSET msgFindKey
+call WriteString
+
+ret
+ResetGame ENDP
+
 END main
