@@ -244,12 +244,6 @@ jmp gameLoop
 gameLoop :
 call ReadKey
 
-mov dh, playerY
-mov dl, playerX
-call Gotoxy
-mov edx, OFFSET blank
-call WriteString
-
 cmp al, 'a'
 je moveLeft
 cmp al, 'A'
