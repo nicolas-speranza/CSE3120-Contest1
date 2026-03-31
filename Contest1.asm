@@ -70,6 +70,8 @@ call WriteString
 call DrawBorder
 
 drawPlayer :
+call ClearInterior
+call DrawBorder
 ; draw key only if not collected and visible
 cmp hasKey, 1
 je skipKeyDraw
