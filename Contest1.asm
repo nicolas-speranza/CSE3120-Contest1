@@ -510,4 +510,42 @@ jbe clearRow
 ret
 ClearInterior ENDP
 
+DrawVision PROC
+mov dh, playerY
+sub dh, visionRadius
+
+visionRow :
+mov dl, playerX
+sub dl, visionRadius
+
+visionCol :
+cmp dl, leftBound
+jb nextCol
+cmp dl, rightBound
+ja nextCol
+cmp dh, topBound
+jb nextCol
+cmp dh, botBound
+ja nextCol
+
+call Gotoxy
+mov al, '.'
+call WriteChar
+
+nextCol :
+inc dl
+mov al, playerX
+add al, visionRadius
+cmp dl, al
+jbe visionCol
+
+inc dh
+mov al, playerY
+add al, visionRadius
+cmp dh, al
+jbe visionRow
+
+ret
+DrawVision ENDP
+
 END main
