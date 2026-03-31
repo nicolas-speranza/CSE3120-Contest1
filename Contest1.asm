@@ -360,8 +360,6 @@ je loseGame
 
 jmp checkGoal
 
-jmp checkGoal
-
 checkGoal :
 cmp hasKey, 1
 je checkDoor
@@ -409,6 +407,29 @@ call WriteString
 call Crlf
 call Crlf
 jmp restartChoice
+
+restartChoice :
+call ReadChar
+cmp al, 'r'
+je doRestart
+cmp al, 'R'
+je doRestart
+cmp al, 'q'
+je quitGame
+cmp al, 'Q'
+je quitGame
+jmp restartChoice
+
+doRestart :
+call ResetGame
+call Clrscr
+mov edx, OFFSET helpMsg
+call WriteString
+call Crlf
+mov edx, OFFSET msgFindKey
+call WriteString
+call DrawBorder
+jmp drawPlayer
 
 quitGame :
 exit
@@ -598,29 +619,6 @@ jbe clearOldRow
 
 ret
 ClearOldVision ENDP
-
-restartChoice :
-call ReadChar
-cmp al, 'r'
-je doRestart
-cmp al, 'R'
-je doRestart
-cmp al, 'q'
-je quitGame
-cmp al, 'Q'
-je quitGame
-jmp restartChoice
-
-doRestart :
-call ResetGame
-call Clrscr
-mov edx, OFFSET helpMsg
-call WriteString
-call Crlf
-mov edx, OFFSET msgFindKey
-call WriteString
-call DrawBorder
-jmp drawPlayer
 
 ResetGame PROC
 mov playerX, 10
