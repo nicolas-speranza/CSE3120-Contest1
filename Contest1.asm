@@ -85,12 +85,18 @@ mov edx, OFFSET keyChar
 call WriteString
 skipKeyDraw :
 
-; draw door
+; draw door only if visible
+mov al, doorX
+mov ah, doorY
+call IsVisible
+cmp bl, 1
+jne skipDoorDraw
 mov dh, doorY
 mov dl, doorX
 call Gotoxy
 mov edx, OFFSET doorChar
 call WriteString
+skipDoorDraw :
 
 ; draw player
 mov dh, playerY
