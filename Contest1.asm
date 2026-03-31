@@ -63,6 +63,9 @@ monster8Y   BYTE 14
 
 visionRadius BYTE 2
 
+prevPlayerX  BYTE 10
+prevPlayerY  BYTE 5
+
 .code
 main PROC
 call Clrscr
