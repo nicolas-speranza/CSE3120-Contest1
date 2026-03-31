@@ -548,4 +548,42 @@ jbe visionRow
 ret
 DrawVision ENDP
 
+ClearOldVision PROC
+mov dh, prevPlayerY
+sub dh, visionRadius
+
+clearOldRow :
+mov dl, prevPlayerX
+sub dl, visionRadius
+
+clearOldCol :
+cmp dl, leftBound
+jb nextOldCol
+cmp dl, rightBound
+ja nextOldCol
+cmp dh, topBound
+jb nextOldCol
+cmp dh, botBound
+ja nextOldCol
+
+call Gotoxy
+mov al, ' '
+call WriteChar
+
+nextOldCol :
+inc dl
+mov al, prevPlayerX
+add al, visionRadius
+cmp dl, al
+jbe clearOldCol
+
+inc dh
+mov al, prevPlayerY
+add al, visionRadius
+cmp dh, al
+jbe clearOldRow
+
+ret
+ClearOldVision ENDP
+
 END main
