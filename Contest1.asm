@@ -105,12 +105,18 @@ call Gotoxy
 mov edx, OFFSET player
 call WriteString
 
-; draw monster 1
+; draw monster 1 if visible
+mov al, monster1X
+mov ah, monster1Y
+call IsVisible
+cmp bl, 1
+jne skipMonster1
 mov dh, monster1Y
 mov dl, monster1X
 call Gotoxy
 mov edx, OFFSET monsterChar
 call WriteString
+skipMonster1 :
 
 ; draw monster 2
 mov dh, monster2Y
